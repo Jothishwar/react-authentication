@@ -1,5 +1,6 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import './signup.css';
 
 const SignUp = () => {
   return (
