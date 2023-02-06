@@ -70,6 +70,7 @@ const SignUp = () => {
 	        <button type="submit" disabled={isSubmitting}>
 	          Sign Up
 	        </button>
+	        <p>Already have an Account? <a href="#">Login</a></p>
 	        </div>
         </Form>
       )}
