@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
+import { Link } from 'react-router-dom';
 import './login.css';
 
 const Login = () => {
@@ -64,7 +65,7 @@ const Login = () => {
 	            <button type="submit" className="btn btn-primary">
 	              Submit
 	            </button>
-	            <p>Don't have an Account <a href="#">Sign up</a></p>
+	            <p>Don't have an Account <Link to="/signup">Sign up</Link></p>
             </div>
           </Form>
         )}

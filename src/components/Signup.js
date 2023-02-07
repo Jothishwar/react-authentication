@@ -1,5 +1,6 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Link } from 'react-router-dom';
 import './signup.css';
 
 const SignUp = () => {
@@ -41,7 +42,8 @@ const SignUp = () => {
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
+          // alert(JSON.stringify(values, null, 2));
+          console.log(values);
           setSubmitting(false);
         }, 400);
       }}
@@ -71,7 +73,7 @@ const SignUp = () => {
 	        <button type="submit" disabled={isSubmitting}>
 	          Sign Up
 	        </button>
-	        <p>Already have an Account? <a href="#">Login</a></p>
+	        <p>Already have an Account? <Link to="/login">Login</Link></p>
 	        </div>
         </Form>
       )}
