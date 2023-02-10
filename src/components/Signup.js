@@ -1,7 +1,8 @@
-import React from "react";
+import React,{ useCallback } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from 'react-router-dom';
 import './signup.css';
+import {auth} from '../firebase';
 
 const SignUp = () => {
   return (
@@ -41,11 +42,15 @@ const SignUp = () => {
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
           // alert(JSON.stringify(values, null, 2));
-          console.log(values);
+          console.log(values.email,values.password);
           setSubmitting(false);
-        }, 400);
+          try{
+            auth
+              .createUserWithEmailAndPassword(values.email,values.password);
+          }catch(error){
+            alert(error);
+          }
       }}
     >
       {({ isSubmitting }) => (

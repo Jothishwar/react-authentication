@@ -11,9 +11,14 @@ function App() {
   return (
     <AuthProvider>
     <Routes>
-      <Route exact path='/login' element={<Login />} />
-      <Route exact path='/signup' element={<Signup />} />
-      <React.Fragment path='/home' element={<Home />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/signup' element={<Signup />} />
+      <Route 
+        path='/*' 
+        element={
+          <PrivateRoute path='/home' element={<Home />} />
+        }
+      />
     </Routes>
     </AuthProvider>
   );
