@@ -1,11 +1,13 @@
 import React,{useCallback} from 'react';
 import { Formik, Form, Field } from 'formik';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import './login.css';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import {auth} from '../firebase';
 
 const Login = ({history}) => {
+	const navigate = useNavigate();
+
   return (
     <div className="container">
       <Formik
@@ -30,6 +32,7 @@ const Login = ({history}) => {
         	  try{
         	   	await signInWithEmailAndPassword(auth,Values.email,Values.password);
         	   	alert('logged in');
+        	   	navigate('/',{replace:true})
        		  }catch(error){
        		   	alert(error);
        		  }

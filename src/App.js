@@ -16,7 +16,7 @@ function App() {
       <Route 
         path='/*' 
         element={
-          <PrivateRoute path='/home' element={<Home />} />
+          <PrivateRoute path='/' element={<Home />} />
         }
       />
     </Routes>

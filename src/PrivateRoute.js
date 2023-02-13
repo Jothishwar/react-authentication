@@ -1,19 +1,20 @@
 import React,{useContext} from 'react';
-import {Routes,Route,Navigate} from 'react-router-dom';
+import {Routes,Route,useNavigate} from 'react-router-dom';
 import {AuthContext} from './Auth';
 
 const PrivateRoute = ({component:RouteComponent,...rest}) => {
 	const {currentUser} = useContext(AuthContext);
+	const navigate = useNavigate();
 	console.log(currentUser)
 	return (
 		<Routes>
 		<Route
 			{...rest}
 			render={routeProps =>
-				currentUser != null ? (
+				!!currentUser ? (
 					<RouteComponent {...routeProps} />
 				) : (
-					<Navigate to='/login' replace />
+					navigate('/login',{replace:true})
 				)
 			}
 		/>

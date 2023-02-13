@@ -1,11 +1,12 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Link,Navigate } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import './signup.css';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 
 const SignUp = () => {
+  const navigate = useNavigate();
   return (
     <Formik
       initialValues={{
@@ -44,14 +45,11 @@ const SignUp = () => {
       }}
       onSubmit={(values, { setSubmitting }) => {
           // alert(JSON.stringify(values, null, 2));
-          console.log(values.email,values.password);
+          // console.log(values.email,values.password);
           setSubmitting(false);
           try{
-            createUserWithEmailAndPassword(auth,values.email,values.password)
-            .then(()=>{
-              alert('user created');
-              <Navigate to='/login' replace />
-            });
+            createUserWithEmailAndPassword(auth,values.email,values.password);
+            navigate('/',{replace:true})
           }catch(error){
             alert(error);
           }
