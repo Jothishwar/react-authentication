@@ -1,13 +1,11 @@
-import React from 'react';
+import React,{useCallback} from 'react';
 import { Formik, Form, Field } from 'formik';
 import { Link } from 'react-router-dom';
 import './login.css';
+import {signInWithEmailAndPassword} from 'firebase/auth';
+import {auth} from '../firebase';
 
-const Login = () => {
-  const handleSubmit = (values) => {
-    console.log(values);
-  };
-
+const Login = ({history}) => {
   return (
     <div className="container">
       <Formik
@@ -26,7 +24,17 @@ const Login = () => {
           }
           return errors;
         }}
-        onSubmit={handleSubmit}
+        onSubmit={
+        	async (Values) => {
+        	  console.log(Values);
+        	  try{
+        	   	await signInWithEmailAndPassword(auth,Values.email,Values.password);
+        	   	alert('logged in');
+       		  }catch(error){
+       		   	alert(error);
+       		  }
+        	}
+       	}
       >
         {({ touched, errors }) => (
           <Form className='loginpage'>
