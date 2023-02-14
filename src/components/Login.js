@@ -28,7 +28,7 @@ const Login = ({history}) => {
         }}
         onSubmit={
         	async (Values) => {
-        	  console.log(Values);
+        	  // console.log(Values);
         	  try{
         	   	await signInWithEmailAndPassword(auth,Values.email,Values.password);
         	   	alert('logged in');
