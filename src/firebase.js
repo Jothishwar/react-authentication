@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBDwnHQlSabVLCrQo6NG0akxKvFWf3T79Q",
-  authDomain: "hackathon-f7ea8.firebaseapp.com",
-  projectId: "hackathon-f7ea8",
-  storageBucket: "hackathon-f7ea8.appspot.com",
-  messagingSenderId: "18139969697",
-  appId: "1:18139969697:web:c79c8274364a07bacd98e0",
-  measurementId: "G-CZM6RHWH4K"
+  apiKey:`${process.env.REACT_APP_API_KEY}`,
+  authDomain:`${process.env.REACT_APP_AUTH_DOMAIN}`,
+  projectId: `${process.env.REACT_APP_PROJECT_ID}`,
+  storageBucket:`${process.env.REACT_APP_STORAGE_BUCKET}`,
+  messagingSenderId:`${process.env.REACT_APP_MESSAING_SENDER_ID}`,
+  appId:`${process.env.REACT_APP_APP_ID}`,
+  measurementId:`${process.env.REACT_APP_MEASUREMENT_ID}`
 };
 
 // Initialize Firebase

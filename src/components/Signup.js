@@ -49,7 +49,8 @@ const SignUp = () => {
           setSubmitting(false);
           try{
             createUserWithEmailAndPassword(auth,values.email,values.password);
-            navigate('/',{replace:true})
+            alert('registered');
+            navigate('/',{replace:true});
           }catch(error){
             alert(error);
           }
